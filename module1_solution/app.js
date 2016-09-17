@@ -16,14 +16,18 @@ function LunchCheckController($scope) {
   };
 
   function getMessage(dishes) {
+    if(dishes.length > 0) {
+
       var arrayOfDishes = dishes.split(",");
-      if(arrayOfDishes.length == 0) {
-        return "Please enter data first"
-      }else if(arrayOfDishes.length <= 3) {
+      if(arrayOfDishes.length <= 3) {
         return "Enjoy!"
       }else {
         return "Too much!";
       }
+
+    }else {
+      return "Please enter data first"
+    }
   }
 
 }
