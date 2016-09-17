@@ -11,10 +11,8 @@ function LunchCheckController($scope) {
   $scope.dishes  = "";
 
   $scope.clearMessage = function() {
-    console.log("Entre");
     if($scope.dishes.length == 0) {
       $scope.message = "";
-      console.log("Entre 0");
     }
   }
 
