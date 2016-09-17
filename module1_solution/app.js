@@ -10,6 +10,14 @@ function LunchCheckController($scope) {
   $scope.message = "";
   $scope.dishes  = "";
 
+  $scope.clearMessage = function() {
+    console.log("Entre");
+    if($scope.dishes.length == 0) {
+      $scope.message = "";
+      console.log("Entre 0");
+    }
+  }
+
   $scope.checkProcess = function() {
     var message = getMessage($scope.dishes);
     $scope.message = message;
