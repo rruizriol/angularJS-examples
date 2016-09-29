@@ -24,6 +24,7 @@ function NarrowItDownController(MenuSearchService) {
       });
     }else {
       controller.search = true;
+      controller.found = [];
     }
   }
 
