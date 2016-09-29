@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="item in controller.foundItems">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="controller.onRemove({index: $index});">Don't want this one!</button>
+        </td>
+    </tr>
+</table>
+<h4><span class="label label-info" ng-if="controller.onNothingFound();">Nothing found<span></h4>
