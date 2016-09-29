@@ -16,12 +16,14 @@ function NarrowItDownController(MenuSearchService) {
   controller.search = false;
 
   controller.find = function() {
-    controller.search = true;
     if(controller.searchTerm.length > 0) {
       var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
       promise.then(function (result) {
-        controller.found = result;
+        controller.found  = result;
+        controller.search = true;
       });
+    }else {
+      controller.search = true;
     }
   }
 
