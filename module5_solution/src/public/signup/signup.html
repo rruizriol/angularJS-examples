@@ -1,4 +1,4 @@
-<div ng-show="!signupForm.$submitted || signupForm.$invalid">
+<div ng-show="!signupForm.$submitted || signupForm.$invalid || !signupCtrl.savedInformation">
   <h3 class="text-center">Sign up for the newsletter</h3>
   <div>
   <blockquote>Enter your information for news letter</blockquote>
@@ -56,9 +56,12 @@
               ng-model="signupCtrl.userInfo.menuItemShortName"
               name="favoritedish"  required/>
 
-    <span ng-if="signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched">
+     <span ng-if="signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched">
         Favorite dish is required
-    </span>
+     </span>
+     <span ng-if="signupCtrl.favoritedishNotFound && !(signupForm.favoritedish.$error.required && signupForm.favoritedish.$touched)">
+        No such menu number exists
+     </span>
 
     </div>
 
@@ -68,6 +71,6 @@
    </form>
   </div>
 </div>
-<div ng-show="signupForm.$submitted && signupForm.$valid">
+<div ng-show="signupForm.$submitted && signupForm.$valid && signupCtrl.savedInformation">
   Your information has been saved
 </div>
